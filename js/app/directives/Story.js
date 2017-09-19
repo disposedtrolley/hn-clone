@@ -3,28 +3,36 @@
 
 angular
 	.module('app')
-	.directive('story', function() {
-		return {
-			restrict: 'E',
-			replace: true,
-			scope: {
-				id: '=id'
-			},
-			templateUrl: 'views/story.html',
-			controller: function($scope, TopStoriesService) {
-				var vm = this
+	.directive('story', story)
 
-				TopStoriesService
-					.getStory($scope.id)
-					.then(function(res) {
-						vm.story = res.data
-						vm.title = vm.story.title
-						vm.url = vm.story.url
-					})
-			},
-			controllerAs: 'vm',
-			link: function(scope, elem, attrs) {
+function story() {
+	const directive = {
+		restrict: 'E',
+		replace: true,
+		scope: {
+			id: '=id'
+		},
+		templateUrl: 'views/story.html',
+		controller: StoryController,
+		controllerAs: 'vm',
+		link: linkFunc
+	}
 
-			}
-		}
-	})
+	return directive
+
+	function linkFunc(scope, elem, attrs, ctrl) { }
+}
+
+StoryController.$inject = ['$scope', 'TopStoriesService']
+
+function StoryController($scope, TopStoriesService) {
+	var vm = this
+
+	TopStoriesService
+		.getStory($scope.id)
+		.then(function(res) {
+			vm.story = res.data
+			vm.title = vm.story.title
+			vm.url = vm.story.url
+		})
+}
