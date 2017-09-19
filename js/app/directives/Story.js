@@ -26,7 +26,15 @@ function story() {
 StoryController.$inject = ['$scope', 'TopStoriesService']
 
 function StoryController($scope, TopStoriesService) {
-	var vm = this
+	let vm = this
+
+	function getDomainFromUrl(url) {
+		let domain = null
+		let a = document.createElement('a')
+		a.setAttribute('href', url)
+		a.hostname === 'news.ycombinator.com' ? domain = '' : domain = '(' + a.hostname + ')'
+		return domain
+	}
 
 	TopStoriesService
 		.getStory($scope.id)
@@ -34,5 +42,7 @@ function StoryController($scope, TopStoriesService) {
 			vm.story = res.data
 			vm.title = vm.story.title
 			vm.url = vm.story.url
+			if (!vm.url) vm.url = 'https://news.ycombinator.com/item?id=' + vm.story.id
+			vm.domain = getDomainFromUrl(vm.url)			
 		})
 }
