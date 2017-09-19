@@ -26,7 +26,7 @@ function story() {
 			elem.parent().remove()
 		})
 
-		scope.on('$destroy', function() {
+		scope.$on('$destroy', function() {
 			elem.off()
 		})
 	}
@@ -68,5 +68,6 @@ function StoryController($scope, TopStoriesService) {
 			vm.score = vm.story.score
 			vm.author = vm.story.by
 			vm.time = getHoursAgo(vm.story.time)
+			vm.numComments = vm.story.descendants
 		})
 }
