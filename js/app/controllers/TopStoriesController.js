@@ -6,15 +6,20 @@
 		.controller('TopStoriesController', TopStoriesController)
 	
 	// dependency injection done in this fashion so it doesn't break when minified
-	TopStoriesController.$inject = []
+	TopStoriesController.$inject = ['TopStoriesService']
 
-	function TopStoriesController() {
+	function TopStoriesController(TopStoriesService) {
 		var vm = this
+		vm.stories = []
 
 		activate()
 
 		function activate() {
-			vm.stories = ['1', '2']
+			TopStoriesService
+				.getStories()
+				.then(function(res) {
+					vm.stories = res.data
+				})
 		}
 	}
 })()
