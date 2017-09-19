@@ -10,14 +10,14 @@
 
 <body>
 	
-	<div ng-app>
-		<input type="text" ng-model="name" />
-		<h1>Hello, my name is... {{ name }}</h1>
+	<div ng-app="app">
+		<div ui-view></div>
 	</div>
 
-	<script src="js/angular.min.js"></script>
+	<script src="js/angular.js"></script>
 	<script src="js/angular-ui-router.js"></script>
 	<script src="js/angular-sanitize.js"></script>
 	<script src="js/app/app.js"></script>	
+	<script src="js/app/controllers/TopStoriesController.js"></script>
 </body>
 </html>
