@@ -45,5 +45,6 @@ function StoryController($scope, TopStoriesService) {
 			if (!vm.url) vm.url = 'https://news.ycombinator.com/item?id=' + vm.story.id
 			vm.domain = getDomainFromUrl(vm.url)			
 			vm.score = vm.story.score
+			vm.author = vm.story.by
 		})
 }
