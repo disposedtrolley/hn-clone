@@ -20,7 +20,16 @@ function story() {
 
 	return directive
 
-	function linkFunc(scope, elem, attrs, ctrl) { }
+	function linkFunc(scope, elem, attrs) {
+		const hideLink = elem[0].querySelector('.hide')
+		hideLink.addEventListener('click', function(evt) {
+			elem.parent().remove()
+		})
+
+		scope.on('$destroy', function() {
+			elem.off()
+		})
+	}
 }
 
 StoryController.$inject = ['$scope', 'TopStoriesService']
