@@ -17,8 +17,9 @@ angular
 				TopStoriesService
 					.getStory($scope.id)
 					.then(function(res) {
-						console.log(res.data)
 						vm.story = res.data
+						vm.title = vm.story.title
+						vm.url = vm.story.url
 					})
 			},
 			controllerAs: 'vm',
