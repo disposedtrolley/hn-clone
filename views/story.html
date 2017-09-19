@@ -1,3 +1,14 @@
 <div>
-	<strong><a href="{{ vm.url}}">{{ vm.title }}</a></strong> {{ vm.domain }}
+	<div>
+		<strong><a href="{{vm.url}}">{{ vm.title }}</a></strong> {{ vm.domain }}
+	</div>
+	<div>
+		<ng-pluralize count="vm.score"
+									when="{
+										'0': '0 points',
+										'1': '1 point',
+										'other': '{} points'
+									}">
+		</ng-pluralize>
+	</div>
 </div>
