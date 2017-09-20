@@ -12,6 +12,7 @@
     "angular": "^1.6.6",
     "angular-sanitize": "^1.6.6",
     "angular-ui-router": "^1.0.3",
+    "angular-utils-pagination": "^0.11.1",
     "express": "^4.13.4"
   }
 }

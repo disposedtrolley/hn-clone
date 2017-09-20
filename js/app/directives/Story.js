@@ -26,6 +26,9 @@ function story() {
 			elem.parent().remove()
 		})
 
+		const index = attrs.index
+		scope.index = index
+
 		scope.$on('$destroy', function() {
 			elem.off()
 		})
