@@ -1,12 +1,7 @@
 <h2>Here are the top stories</h1>
-<ul class="list pl0">
-	<li class="cf" dir-paginate="story in vm.stories | itemsPerPage: 30">
-		<div class="fl w-10 mw2 tr pr1">
-			{{ vm.stories.indexOf(story) + 1 }}.
-		</div>
-		<div class="fl w-90">
-			<story id="story"></story>
-		</div>
+<ol start="{{ vm.start }}">
+	<li dir-paginate="story in vm.stories | itemsPerPage: 30">
+		<story id="story"></story>
 	</li>
-</ul>
+</ol>
 <dir-pagination-controls on-page-change="updatePage(newPageNumber, oldPageNumber)"></dir-pagination-controls>
