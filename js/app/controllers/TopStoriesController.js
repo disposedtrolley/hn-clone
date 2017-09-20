@@ -6,9 +6,9 @@
 		.controller('TopStoriesController', TopStoriesController)
 	
 	// dependency injection done in this fashion so it doesn't break when minified
-	TopStoriesController.$inject = ['TopStoriesService', '$scope']
+	TopStoriesController.$inject = ['TopStoriesService', '$scope', '$stateParams']
 
-	function TopStoriesController(TopStoriesService, $scope) {
+	function TopStoriesController(TopStoriesService, $scope, $stateParams) {
 		var vm = this
 		vm.stories = []
 		vm.start
@@ -17,7 +17,9 @@
 
 		function activate() {
 			vm.stories = []
-			$scope.updatePage = updatePage
+			vm.currentPage = $stateParams.page || 1			
+			vm.updatePage = updatePage
+			vm.updatePage(vm.currentPage)
 
 			TopStoriesService
 				.getStories()
