@@ -6,9 +6,9 @@
 		.controller('TopStoriesController', TopStoriesController)
 	
 	// dependency injection done in this fashion so it doesn't break when minified
-	TopStoriesController.$inject = ['TopStoriesService', '$scope', '$stateParams']
+	TopStoriesController.$inject = ['TopStoriesService', '$scope', '$stateParams', '$location']
 
-	function TopStoriesController(TopStoriesService, $scope, $stateParams) {
+	function TopStoriesController(TopStoriesService, $scope, $stateParams, $location) {
 		var vm = this
 		vm.stories = []
 		vm.start
@@ -28,8 +28,8 @@
 				})
 			
 			function updatePage(newPageNumber, oldPageNumber) {
+				$location.url('top?page=' + newPageNumber)
 				vm.start = 30 * (newPageNumber - 1) + 1
-				console.log(vm.start)
 			}
 		}
 	}
