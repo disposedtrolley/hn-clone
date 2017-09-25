@@ -3,12 +3,11 @@
 
 	angular
 		.module('app')
-		.controller('TopStoriesController', TopStoriesController)
+		.controller('StoryTopController', StoryTopController)
 	
 	// dependency injection done in this fashion so it doesn't break when minified
-	TopStoriesController.$inject = ['TopStoriesService', '$scope', '$stateParams', '$location']
-
-	function TopStoriesController(TopStoriesService, $scope, $stateParams, $location) {
+	StoryTopController.$inject = ['TopStoriesService', '$scope', '$stateParams', '$location']
+	function StoryTopController(TopStoriesService, $scope, $stateParams, $location) {
 		var vm = this
 		vm.stories = []
 		vm.start

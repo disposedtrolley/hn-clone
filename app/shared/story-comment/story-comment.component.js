@@ -5,7 +5,7 @@
 		bindings: {
 			id: '='		// set up two-way data binding
 		},
-		templateUrl: 'app/components/story-comment/story-comment.html',
+		templateUrl: 'app/shared/story-comment/story-comment.html',
 		controller: StoryCommentController,
 		controllerAs: 'vm'
 	}

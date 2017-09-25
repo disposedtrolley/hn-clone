@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hacker News Clone</title>
+	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.8.0/css/tachyons.min.css"/>
+	<link rel="stylesheet" href="app/routes/story-top/story-top.css" />	
+	<link rel="stylesheet" href="app/app.css" />	
+</head>
+
+<body>
+	
+	<div ng-app="app">
+		<div ui-view></div>
+	</div>
+
+	<!-- Dependencies -->
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+
+	<!-- Global app config -->
+	<script src="app/app.module.js"></script>
+
+	<!-- Routes -->
+	<script src="app/routes/app.routes.js"></script>
+	<script src="app/routes/story-top/story-top.controller.js"></script>
+	<script src="app/routes/story-detail/story-detail.controller.js"></script>
+
+	<!-- Filters -->
+	<script src="app/shared/services/top-stories.service.js"></script>
+	
+	<!-- Shared components -->
+	<script src="app/shared/story/story.directive.js"></script>
+	<script src="app/shared/story-comment/story-comment.component.js"></script>
+
+	<!-- Custom filters -->
+	<script src="app/shared/filters/getTimeAgo.js"></script>
+	<script src="app/shared/filters/getDomainFromUrl.js"></script>
+</body>
+</html>
