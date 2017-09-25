@@ -48,18 +48,6 @@ function StoryController($scope, TopStoriesService) {
 		return domain
 	}
 
-	function getHoursAgo(seconds) {
-		const secondDifference = (Date.now()/1000) - seconds
-
-		if (secondDifference < 3600) {
-			const minutesAgo = secondDifference/60
-			return `${Math.floor(minutesAgo)} minutes ago`
-		} else {
-			const hoursAgo = secondDifference/3600
-			return `${Math.floor(hoursAgo)} hours ago`
-		}
-	}
-
 	TopStoriesService
 		.getStory($scope.id)
 		.then(function(res) {
@@ -70,7 +58,7 @@ function StoryController($scope, TopStoriesService) {
 			vm.domain = getDomainFromUrl(vm.url)			
 			vm.score = vm.story.score
 			vm.author = vm.story.by
-			vm.time = getHoursAgo(vm.story.time)
+			vm.time = TopStoriesService.getHoursAgo(vm.story.time)
 			vm.numComments = vm.story.descendants
 		})
 }
