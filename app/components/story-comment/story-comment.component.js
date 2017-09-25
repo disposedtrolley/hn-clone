@@ -16,6 +16,7 @@
 		vm.commentText
 		vm.commentAuthor
 		vm.commentTime
+		vm.commentKids
 
 		vm.$onInit = function() {
 			TopStoriesService
@@ -24,6 +25,7 @@
 					vm.commentText = res.data.text
 					vm.commentAuthor = res.data.by
 					vm.commentTime = getTimeAgoFilter(res.data.time)
+					vm.commentKids = res.data.kids
 				})
 		}
 	}
