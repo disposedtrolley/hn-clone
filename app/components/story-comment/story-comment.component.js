@@ -10,8 +10,8 @@
 		controllerAs: 'vm'
 	}
 
-	StoryCommentController.$inject = ['TopStoriesService']
-	function StoryCommentController(TopStoriesService) {
+	StoryCommentController.$inject = ['TopStoriesService', 'getHoursAgoFilter']
+	function StoryCommentController(TopStoriesService, getHoursAgoFilter) {
 		let vm = this
 		vm.commentText
 		vm.commentAuthor
@@ -23,7 +23,7 @@
 				.then(function(res) {
 					vm.commentText = res.data.text
 					vm.commentAuthor = res.data.by
-					vm.commentTime = TopStoriesService.getHoursAgo(res.data.time)
+					vm.commentTime = getHoursAgoFilter(res.data.time)
 				})
 		}
 	}
