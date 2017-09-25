@@ -10,6 +10,7 @@
 	function TopStoriesService($http) {
 		this.getStories = getStories
 		this.getStory = getStory
+		this.getHoursAgo = getHoursAgo
 
 		function getStories() {
 			return $http.get('https://hacker-news.firebaseio.com/v0/topstories.json')
