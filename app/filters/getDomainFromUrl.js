@@ -13,5 +13,5 @@ angular
 			} else {
 				throw new Error('getDomainFromUrlFilter must be given a URL as an input.');
 			}
-		};
-	};
+		}
+	}
