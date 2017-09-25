@@ -25,7 +25,7 @@
 		return directive
 
 		function linkFunc(scope, elem, attrs) {
-			const hideLink = elem[0].querySelector('.hide')
+			const hideLink = elem[0].querySelector('.hide-item')
 			hideLink.addEventListener('click', function(evt) {
 				elem.parent().remove()
 			})
