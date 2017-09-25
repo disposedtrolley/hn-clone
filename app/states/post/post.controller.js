@@ -8,11 +8,11 @@
 	PostController.$inject = ['TopStoriesService', '$stateParams']
 	function PostController(TopStoriesService, $stateParams) {
 		let vm = this
-
-		activate()
-
 		vm.id
 		vm.story
+		vm.comments
+
+		activate()
 
 		function activate() {
 			vm.id = $stateParams.id
@@ -21,6 +21,7 @@
 				.getStory(vm.id)
 				.then(function(res) {
 					vm.story = res.data
+					vm.comments = res.data.kids
 				})
 		}
 	}
