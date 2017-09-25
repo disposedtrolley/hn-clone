@@ -35,9 +35,9 @@ function story() {
 	}
 }
 
-StoryController.$inject = ['$scope', 'TopStoriesService', 'getHoursAgoFilter', 'getDomainFromUrlFilter']
+StoryController.$inject = ['$scope', 'TopStoriesService', 'getTimeAgoFilter', 'getDomainFromUrlFilter']
 
-function StoryController($scope, TopStoriesService, getHoursAgoFilter, getDomainFromUrlFilter) {
+function StoryController($scope, TopStoriesService, getTimeAgoFilter, getDomainFromUrlFilter) {
 	let vm = this
 
 	TopStoriesService
@@ -50,7 +50,7 @@ function StoryController($scope, TopStoriesService, getHoursAgoFilter, getDomain
 			vm.domain = getDomainFromUrlFilter(vm.url)			
 			vm.score = vm.story.score
 			vm.author = vm.story.by
-			vm.time = getHoursAgoFilter(vm.story.time)
+			vm.time = getTimeAgoFilter(vm.story.time)
 			vm.numComments = vm.story.descendants
 		})
 }
