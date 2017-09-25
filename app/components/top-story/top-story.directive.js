@@ -35,18 +35,10 @@ function story() {
 	}
 }
 
-StoryController.$inject = ['$scope', 'TopStoriesService', 'getHoursAgoFilter']
+StoryController.$inject = ['$scope', 'TopStoriesService', 'getHoursAgoFilter', 'getDomainFromUrlFilter']
 
-function StoryController($scope, TopStoriesService, getHoursAgoFilter) {
+function StoryController($scope, TopStoriesService, getHoursAgoFilter, getDomainFromUrlFilter) {
 	let vm = this
-
-	function getDomainFromUrl(url) {
-		let domain = null
-		let a = document.createElement('a')
-		a.setAttribute('href', url)
-		a.hostname === 'news.ycombinator.com' ? domain = '' : domain = '(' + a.hostname + ')'
-		return domain
-	}
 
 	TopStoriesService
 		.getStory($scope.id)
@@ -55,7 +47,7 @@ function StoryController($scope, TopStoriesService, getHoursAgoFilter) {
 			vm.title = vm.story.title
 			vm.url = vm.story.url
 			if (!vm.url) vm.url = 'https://news.ycombinator.com/item?id=' + vm.story.id
-			vm.domain = getDomainFromUrl(vm.url)			
+			vm.domain = getDomainFromUrlFilter(vm.url)			
 			vm.score = vm.story.score
 			vm.author = vm.story.by
 			vm.time = getHoursAgoFilter(vm.story.time)
