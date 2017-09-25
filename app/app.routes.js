@@ -9,8 +9,8 @@ angular
 			})
 			.state('post', {
 				url: '/post?id',
-				templateUrl: 'app/states/post/post.html',
-				controller: 'PostController as vm'
+				templateUrl: 'app/states/story/story.html',
+				controller: 'StoryController as vm'
 			})
 		$urlRouterProvider.otherwise('/top')
 	})
