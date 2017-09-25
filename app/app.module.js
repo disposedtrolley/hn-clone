@@ -1,2 +1,2 @@
 angular
-	.module('app', ['ui.router', 'angularUtils.directives.dirPagination'])
+	.module('app', ['ui.router', 'angularUtils.directives.dirPagination', 'ngSanitize'])

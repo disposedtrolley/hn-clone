@@ -20,6 +20,7 @@
 			TopStoriesService
 				.getStory(vm.id)
 				.then(function(res) {
+					console.log(res)
 					vm.story = res.data
 				})
 		}
