@@ -10,7 +10,12 @@ angular
 			.state('post', {
 				url: '/post?id',
 				templateUrl: 'app/states/story/story.html',
-				controller: 'StoryController as vm'
+				controller: 'StoryController as vm',
+				resolve: {
+					story: function(TopStoriesService, $stateParams) {
+						return TopStoriesService.getStory($stateParams.id)
+					}
+				}
 			})
 		$urlRouterProvider.otherwise('/top')
 	})

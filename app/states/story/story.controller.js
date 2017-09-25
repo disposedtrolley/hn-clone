@@ -5,8 +5,8 @@
 		.module('app')
 		.controller('StoryController', StoryController)
 	
-		StoryController.$inject = ['TopStoriesService', '$stateParams']
-	function StoryController(TopStoriesService, $stateParams) {
+		StoryController.$inject = ['TopStoriesService', '$stateParams', 'story']
+	function StoryController(TopStoriesService, $stateParams, story) {
 		let vm = this
 		vm.id
 		vm.story
@@ -16,13 +16,8 @@
 
 		function activate() {
 			vm.id = $stateParams.id
-
-			TopStoriesService
-				.getStory(vm.id)
-				.then(function(res) {
-					vm.story = res.data
-					vm.comments = res.data.kids
-				})
+			vm.story = story.data
+			vm.comments = story.data.kids
 		}
 	}
 })()
