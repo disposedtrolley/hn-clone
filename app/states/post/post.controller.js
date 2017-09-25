@@ -11,10 +11,17 @@
 
 		activate()
 
-		vm.id = $stateParams.id
+		vm.id
+		vm.story
 
 		function activate() {
+			vm.id = $stateParams.id
 
+			TopStoriesService
+				.getStory(vm.id)
+				.then(function(res) {
+					vm.story = res.data
+				})
 		}
 	}
 })()
