@@ -1,0 +1,18 @@
+<h2><a href="" ui-sref="top">Hacker News</a></h2>
+<story id="vm.id"></story>
+
+<form>
+	<p>
+		<textarea name="comment" id="comment" cols="50" rows="6"></textarea>
+	</p>
+	<p>
+		<button>Add Comment</button>
+	</p>
+</form>
+
+<h3>Comments</h3>
+<ul class="list mt0">
+	<li class="pt2" ng-repeat="commentId in vm.comments">
+		<story-comment id="commentId"></story-comment>
+	</li>
+</ul>
