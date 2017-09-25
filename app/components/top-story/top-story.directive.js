@@ -13,7 +13,7 @@ function story() {
 			id: '=id'
 		},
 		templateUrl: 'app/components/top-story/top-story.html',
-		controller: StoryController,
+		controller: TopStoryController,
 		controllerAs: 'vm',
 		link: linkFunc
 	}
@@ -35,9 +35,9 @@ function story() {
 	}
 }
 
-StoryController.$inject = ['$scope', 'TopStoriesService', 'getTimeAgoFilter', 'getDomainFromUrlFilter']
+TopStoryController.$inject = ['$scope', 'TopStoriesService', 'getTimeAgoFilter', 'getDomainFromUrlFilter']
 
-function StoryController($scope, TopStoriesService, getTimeAgoFilter, getDomainFromUrlFilter) {
+function TopStoryController($scope, TopStoriesService, getTimeAgoFilter, getDomainFromUrlFilter) {
 	let vm = this
 
 	TopStoriesService
