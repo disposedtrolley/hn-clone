@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Hacker News Clone</title>
 	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.8.0/css/tachyons.min.css"/>
-	<link rel="stylesheet" href="css/tachyons-extras.css" />	
-	<link rel="stylesheet" href="app.css" />	
+	<link rel="stylesheet" href="app/states/top/top-stories.css" />	
+	<link rel="stylesheet" href="app/app.css" />	
 </head>
 
 <body>
@@ -18,9 +18,10 @@
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
-	<script src="js/app/app.js"></script>	
-	<script src="js/app/controllers/TopStoriesController.js"></script>
-	<script src="js/app/services/TopStoriesService.js"></script>
-	<script src="js/app/directives/Story.js"></script>
+	<script src="app/app.module.js"></script>
+	<script src="app/app.routes.js"></script>
+	<script src="app/states/top/top-stories.controller.js"></script>
+	<script src="app/states/top/top-stories.service.js"></script>
+	<script src="app/components/story/story.directive.js"></script>
 </body>
 </html>
