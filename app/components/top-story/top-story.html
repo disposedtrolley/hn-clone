@@ -3,12 +3,13 @@
 		<strong><a href="{{vm.url}}">{{ vm.title }}</a></strong> {{ vm.domain }}
 	</div>
 	<div>
-		Score: {{ vm.score }} by {{ vm.author }} {{ vm.time }} | <a href="" class="hide">Hide</a> |
-		<ng-pluralize
-			count="vm.numComments"
-			when="{ '0': 'discuss',
-							'1': '1 comment',
-							'other': '{} comments'}">
-		</ng-pluralize>
+		Score: {{ vm.score }} by {{ vm.author }} {{ vm.time }} | <a href="" class="hide">Hide</a> | <a href="" ui-sref="post({id: vm.storyId})">
+			<ng-pluralize
+				count="vm.numComments"
+				when="{ '0': 'discuss',
+								'1': '1 comment',
+								'other': '{} comments'}">
+			</ng-pluralize>
+		</a>
 	</div>
 </div>
