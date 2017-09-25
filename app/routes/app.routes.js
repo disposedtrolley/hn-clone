@@ -4,13 +4,13 @@ angular
 		$stateProvider
 			.state('top', {
 				url: '/top?page',
-				templateUrl: 'app/states/top/top-stories.html',
-				controller: 'TopStoriesController as vm'
+				templateUrl: 'app/routes/story-top/story-top.html',
+				controller: 'StoryTopController as vm'
 			})
 			.state('post', {
 				url: '/post?id',
-				templateUrl: 'app/states/story/story.html',
-				controller: 'StoryController as vm',
+				templateUrl: 'app/routes/story-detail/story-detail.html',
+				controller: 'StoryDetailController as vm',
 				resolve: {
 					story: function(TopStoriesService, $stateParams) {
 						return TopStoriesService.getStory($stateParams.id)

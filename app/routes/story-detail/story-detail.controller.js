@@ -3,10 +3,10 @@
 
 	angular
 		.module('app')
-		.controller('StoryController', StoryController)
+		.controller('StoryDetailController', StoryDetailController)
 	
-		StoryController.$inject = ['TopStoriesService', '$stateParams', 'story']
-	function StoryController(TopStoriesService, $stateParams, story) {
+	StoryDetailController.$inject = ['TopStoriesService', '$stateParams', 'story']
+	function StoryDetailController(TopStoriesService, $stateParams, story) {
 		let vm = this
 		vm.id
 		vm.story

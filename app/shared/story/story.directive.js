@@ -15,7 +15,7 @@
 			controller: StoryDirectiveController,
 			controllerAs: 'vm',
 			link: linkFunc,
-			templateUrl: 'app/components/top-story/top-story.html',
+			templateUrl: 'app/shared/story/story.html',
 			restrict: 'E',
 			scope: {
 				storyId: '=id'
