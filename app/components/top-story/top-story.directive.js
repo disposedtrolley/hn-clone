@@ -12,7 +12,7 @@ function story() {
 		scope: {
 			id: '=id'
 		},
-		templateUrl: 'app/components/story/story.html',
+		templateUrl: 'app/components/top-story/top-story.html',
 		controller: StoryController,
 		controllerAs: 'vm',
 		link: linkFunc
